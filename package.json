@@ -1,0 +1,19 @@
+{
+  "name": "stockticker",
+  "version": "1.0.0",
+  "description": "Angular 1 app of Stock listings",
+  "main": "stockTicker.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dhgiang/StockTicker.git"
+  },
+  "author": "Duc Giang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dhgiang/StockTicker/issues"
+  },
+  "homepage": "https://github.com/dhgiang/StockTicker#readme"
+}
