@@ -7,7 +7,7 @@
     <script>
         var stockApp = angular.module('stockApp', []);
         stockApp.controller('StockCtrl', function($scope, $http){
-            $http.get('http://127.0.0.1:5000/stockData').success(function(data){
+            $http.get('http://127.0.0.1:3000/stockData').success(function(data){
                 $scope.stocks = data;
             });
             $scope.sortField = 'Name'
