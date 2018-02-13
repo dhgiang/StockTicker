@@ -1,2 +1,2 @@
 # StockTicker
-python, google finance, angular project
+Just JEAN - JSON, Express, Angular, NodeJS
