@@ -12,6 +12,12 @@
   },
   "author": "Duc Giang",
   "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "express-handlebars": "^3.0.0",
+    "fs": "0.0.1-security"
+  },
   "bugs": {
     "url": "https://github.com/dhgiang/StockTicker/issues"
   },

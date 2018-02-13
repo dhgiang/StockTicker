@@ -1,26 +1,42 @@
+/** 
+ * Duc Giang
+ * Stock Ticker
+ * 
+*/
+
+const express = require("express");
+const bodyParser = require("body-parser");
+const exphbs = require("express-handlebars");
+const path = require("path");
+const fs = require("fs");
 const http = require('http');
-const fs = require('fs');
+const app = express();
 
-const hostname = '127.0.0.1';
-const port = 5500;
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
 
-fs.readFile('stocks.html', (err, html) => {
-  
-  if(err) {
-    console.log(err);
-  }
+let data = JSON.parse(fs.readFileSync("./public/stocks.json"));
+let html = fs.readFileSync("./views/stocks.html");
 
-  const server = http.createServer((req, res) => {
-    res.statusCode = 200;
-    res.setHeader('Content-type', 'text/html');
-    res.write(html);
-    res.end();
-  });
+port = process.env.PORT || 5000;
 
-  server.listen(port, hostname, () => {
-    console.log('Server started on port ' + port);
-  })
-
+app.get('/stockData', (req, res) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Headers", "X-Requested-With, Content-Type");
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST","PUT");
+  res.send(data);
 });
 
+app.get('/stocks', (req,res) => {
+  res.statusCode = 200;        
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Headers", "X-Requested-With, Content-Type");
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST","PUT");
+  res.setHeader('Content-type', 'text/html');
+  res.write(html);
+  res.end();
+});
 
+app.listen(port, function() {
+  console.log("Data server ready at http://localhost:" + port + "/stocks");
+});
