@@ -18,7 +18,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 let data = JSON.parse(fs.readFileSync("./public/stocks.json"));
 let html = fs.readFileSync("./views/stocks.html");
 
-port = process.env.PORT || 5000;
+port = process.env.PORT || 3000;
 
 app.get('/stockData', (req, res) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -27,7 +27,7 @@ app.get('/stockData', (req, res) => {
   res.send(data);
 });
 
-app.get('/stocks', (req,res) => {
+app.get('/', (req,res) => {
   res.statusCode = 200;        
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Headers", "X-Requested-With, Content-Type");
@@ -38,5 +38,5 @@ app.get('/stocks', (req,res) => {
 });
 
 app.listen(port, function() {
-  console.log("Data server ready at http://localhost:" + port + "/stocks");
+  console.log("Data server ready at http://localhost:" + port);
 });
